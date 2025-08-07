@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyCode</title>
+    
+    <!-- Link para o nosso arquivo de estilos CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Container principal que centraliza o conteúdo do jogo -->
+    <div class="main-container">
+        <!-- Cabeçalho da página -->
+        <header>
+            <h1>KeyCode: Escreva seu Codigo 🚀</h1>
+            <p id="level-title">Nível 1: O Caminho Reto</p>
+             <!-- Seletor de Nível -->
+            <div class="level-selector-container">
+                <label for="level-selector">Escolha um nível:</label>
+                <select id="level-selector">
+                    <!-- As opções de nível serão adicionadas pelo JavaScript -->
+                </select>
+            </div>
+        </header>
+
+        <!-- Layout do jogo com as duas colunas principais -->
+        <div class="game-layout">
+
+            <!-- Coluna da esquerda: Painel de Controle e Código -->
+            <aside class="control-panel">
+                <h2>Painel de Controle</h2>
+                
+                <!-- Painel de Instruções com os comandos do jogo -->
+                <div class="instructions-panel">
+                    <h3>Como Jogar</h3>
+                    <p>Seu objetivo é guiar o robô azul até a estrela amarela, evitando paredes e inimigos. Para isso, escreva os comandos no editor abaixo.</p>
+                    <h4>Comandos:</h4>
+                    <ul>
+                        <li><span>mover(n)</span>: Move o robô 'n' casas.</li>
+                        <li><span>virarDireita(n)</span>: Vira 90° para a direita 'n' vezes.</li>
+                        <li><span>virarEsquerda(n)</span>: Vira 90° para a esquerda 'n' vezes.</li>
+                        <li><span>atirarNaFrente()</span>: Remove o inimigo 1 casa à sua frente.</li>
+                    </ul>
+                     <p class="tip"><strong>Dica:</strong> Se você não colocar um número, como em `mover()`, ele irá se repetir 1 vez.</p>
+                </div>
+
+                <!-- Área de texto onde o jogador escreve o código -->
+                <textarea id="code-editor" rows="8" placeholder="mover(4)&#10;virarDireita()&#10;mover(4)"></textarea>
+                
+                <!-- Botões de ação -->
+                <div class="button-grid">
+                    <button id="run-button" class="btn btn-green">▶ Executar</button>
+                    <button id="reset-button" class="btn btn-red">↻ Limpar</button>
+                    <button id="hint-button" class="btn btn-yellow btn-full">💡 Pegar uma Dica</button>
+                </div>
+            </aside>
+
+            <!-- Coluna da direita: Área do Jogo -->
+            <main class="game-area">
+                <!-- O grid do jogo será gerado e inserido aqui pelo JavaScript -->
+                <div id="grid-container"></div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Rodapé da página -->
+    <footer class="footer">
+        Made with
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#f64348" stroke="#f64348" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        by
+        <a href="https://github.com/PedroPereiraAst" target="_blank">@Ast</a>
+    </footer>
+
+    <!-- Modais (Pop-ups) para mensagens e dicas. -->
+    <div id="message-box" class="modal">
+        <h2 id="message-title"></h2>
+        <p id="message-text"></p>
+        <button id="next-level-button" class="btn btn-teal">Próximo Nível</button>
+        <button id="try-again-button" class="btn btn-amber">Tentar Novamente</button>
+    </div>
+
+    <div id="hint-box" class="modal">
+        <h2 class="modal-title-hint">💡 Dica</h2>
+        <p id="hint-text"></p>
+        <button id="close-hint-button" class="btn btn-gray">Entendi!</button>
+    </div>
+
+    <!-- Link para o nosso arquivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
